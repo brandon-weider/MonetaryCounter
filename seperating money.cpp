@@ -10,9 +10,7 @@ int main()
 	int nickels;        // number of nickels required
 	int pennies;        // number of pennies required
 	double totalCents;  // converts the initial amount of money into cents
-	int total_1;        // total amount of money left after first calculation
-	int total_2;        // total amount of money left after second calculation
-	int total_3;        // total amount of money left after third calculation
+	int totalCounter;   // keeps track of the money throughout the calculations
 
 	cout << "Please enter the money you want (Indicate cents with a decimal. Ex. 41 cents is 0.41): ";
 	cin >> amount; // input the desired total with decimal places to indicate cents (Ex. 41 cents should be .41)
@@ -20,12 +18,12 @@ int main()
 	//calculations
 	totalCents = (amount * 100);
 	quarters = (totalCents / 25);
-	total_1 = (totalCents - (quarters * 25));
-	dimes = (total_1 / 10)
-	total_2 = (total_1 - (dimes * 10))
-	nickels = (total_2 / 5);
-	total_3 = (total_2 - (nickels * 5));
-	pennies = total_3;
+	totalCounter = (totalCents - (quarters * 25));
+	dimes = (totalCounter / 10);
+	totalCounter -= (dimes * 10);
+	nickels = (totalCounter / 5);
+	totalCounter -= (nickels * 5);
+	pennies = totalCounter;
 
 	//output results
 	cout << "Monetary breakdown into change" << endl
